@@ -1,0 +1,249 @@
+:root {
+  --bg: #101820;
+  --surface: #182430;
+  --surface-hover: #1e2c3a;
+  --border: #2a3a4a;
+  --text: #eaf0f4;
+  --text-dim: #8fa3b3;
+  --accent: #ff8552;
+  --accent-dim: #ff855233;
+  --favorite: #ffc93c;
+  --danger: #ff5c5c;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* Header */
+
+.app-header {
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+/* Form */
+
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+#contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.field input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn-primary {
+  grid-column: 1 / -1;
+  background: var(--accent);
+  color: #101820;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+/* Toolbar */
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+#search-input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.filter-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-btn[data-active="true"] {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* List */
+
+.contacts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: background 0.15s ease;
+}
+
+.contact-card:hover {
+  background: var(--surface-hover);
+}
+
+.contact-card.is-favorite {
+  border-color: var(--favorite);
+}
+
+.contact-name {
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+
+.contact-detail {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.contact-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  color: var(--text);
+  border-color: var(--text-dim);
+}
+
+.icon-btn[data-action="favorite"].is-active,
+.contact-card.is-favorite .icon-btn[data-action="favorite"] {
+  color: var(--favorite);
+  border-color: var(--favorite);
+}
+
+.icon-btn-danger:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+/* Empty state */
+
+.empty-state {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 0;
+}
+
+/* Responsivo */
+
+@media (max-width: 480px) {
+  #contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field:nth-child(3) {
+    grid-column: 1;
+  }
+}
