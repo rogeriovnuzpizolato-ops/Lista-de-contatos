@@ -1,0 +1,7 @@
+{
+  "contacts": [
+    { "id": 1, "name": "Ana Silva", "phone": "(11) 99999-8888", "email": "ana@email.com", "favorite": false },
+    { "id": 2, "name": "Bruno Costa", "phone": "(21) 98888-7777", "email": "bruno@email.com", "favorite": true },
+    { "id": 3, "name": "Carla Souza", "phone": "(31) 97777-6666", "email": "carla@email.com", "favorite": false }
+  ]
+}
