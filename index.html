@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Contatos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="app-header">
+      <h1>Contatos</h1>
+      <p class="subtitle">Sua agenda, organizada.</p>
+    </header>
+
+    <section class="form-card">
+      <form id="contact-form">
+        <div class="field">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" placeholder="Ana Silva" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Telefone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(11) 99999-8888" required>
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="ana@email.com" required>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submit-btn">Adicionar contato</button>
+      </form>
+    </section>
+
+    <section class="toolbar">
+      <input type="search" id="search-input" placeholder="Buscar por nome...">
+      <button type="button" class="filter-btn" id="filter-favorites" data-active="false">
+        ★ Favoritos
+      </button>
+    </section>
+
+    <section class="list-section">
+      <ul id="contacts-list" class="contacts-list">
+        <!-- Os cards de contato entram aqui via JS -->
+      </ul>
+
+      <p id="empty-state" class="empty-state" hidden>
+        Nenhum contato encontrado.
+      </p>
+    </section>
+
+  </div>
+
+  <!-- Template de um card de contato: use isso como referência na hora de montar o HTML no JS -->
+  <template id="contact-card-template">
+    <li class="contact-card" data-id="">
+      <div class="contact-info">
+        <p class="contact-name"></p>
+        <p class="contact-detail contact-phone"></p>
+        <p class="contact-detail contact-email"></p>
+      </div>
+      <div class="contact-actions">
+        <button type="button" class="icon-btn" data-action="favorite" title="Favoritar">★</button>
+        <button type="button" class="icon-btn" data-action="edit" title="Editar">✎</button>
+        <button type="button" class="icon-btn icon-btn-danger" data-action="delete" title="Excluir">🗑</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="api.js"></script>
+  <script src="ui.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
