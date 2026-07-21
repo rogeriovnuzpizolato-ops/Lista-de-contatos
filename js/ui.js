@@ -11,6 +11,8 @@ const ui = {
             
             li.dataset.id = contato.id;
 
+            li.classList.toggle("is-favorite", contato.favorite);
+
             const name = li.querySelector(".contact-name")
             const phone = li.querySelector(".contact-phone")
             const email = li.querySelector(".contact-email")
