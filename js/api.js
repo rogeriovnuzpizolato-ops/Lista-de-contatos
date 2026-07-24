@@ -39,5 +39,17 @@ const api = {
         alert("Erro ao editar contato")
         throw error
        }
+    },
+
+    async DeletarContato(id){
+        try {
+            const response = await fetch(`http://localhost:3000/contacts/${id}`,{
+                method: "DELETE"
+            });
+            return await response.json();
+        } catch (error) {
+            alert("Erro ao deletar o contato");
+            throw error;
+        }
     }
 }
