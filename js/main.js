@@ -1,4 +1,5 @@
 let contatos;
+let contatoEditadoId = null ;
 const form = document.getElementById("contact-form");
 const contactList = document.getElementById("contacts-list");
 
@@ -16,7 +17,14 @@ form.addEventListener("submit", async(event)=>{
         favorite: false
     };
 
-    await api.salvarContato(novoContato);
+    if(contatoEditadoId === null){
+        await api.salvarContato(novoContato);
+    }else{
+        novoContato.id = contatoEditadoId ;
+        await api.editarContato(novoContato);
+        contatoEditadoId = null ;
+    }
+
     init()
 });
 
@@ -30,14 +38,22 @@ contactList.addEventListener("click", async (event)=>{
     const id = card.dataset.id;
 
     switch(button.dataset.action){
-        case "favorite":
+        case "favorite":{
             const contatoAtual = contatos.find(contato => contato.id.toString() === card.dataset.id.toString());
             contatoAtual.favorite = !contatoAtual.favorite;
             await api.editarContato(contatoAtual);
             init()
             break;
-        case "edit":
+        }  
+        case "edit":{
+            const contatoAtual = contatos.find(contato => contato.id.toString() === card.dataset.id.toString());
+            form.name.value = contatoAtual.name;
+            form.phone.value = contatoAtual.phone;
+            form.email.value = contatoAtual.email;
+
+            contatoEditadoId = contatoAtual.id;
             break;
+        }
         case "delete":
             break;        
     }
