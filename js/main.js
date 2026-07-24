@@ -1,7 +1,9 @@
 let contatos;
 let contatoEditadoId = null ;
+
 const form = document.getElementById("contact-form");
 const contactList = document.getElementById("contacts-list");
+const searchInput = document.getElementById("search-input");
 
 async function init(){
     contatos = await api.buscarContatos();
@@ -60,6 +62,11 @@ contactList.addEventListener("click", async (event)=>{
             break;        
         }
     }
+});
+
+searchInput.addEventListener("input", (event)=> {
+    const contatosFiltrados = contatos.filter(contato => contato.name.toLowerCase().includes(event.target.value.toLowerCase()))
+    ui.renderizarcontatos(contatosFiltrados);
 })
 
 init();
