@@ -1,7 +1,19 @@
 {
   "contacts": [
-    { "id": 1, "name": "Ana Silva", "phone": "(11) 99999-8888", "email": "ana@email.com", "favorite": false },
-    { "id": 2, "name": "Bruno Costa", "phone": "(21) 98888-7777", "email": "bruno@email.com", "favorite": true },
-    { "id": 3, "name": "Carla Souza", "phone": "(31) 97777-6666", "email": "carla@email.com", "favorite": false }
-  ]
+    {
+      "name": "beatriz",
+      "phone": "(11) 99999-8888",
+      "email": "bia@email.com",
+      "favorite": false,
+      "id": "fbn1QIgH_bY"
+    },
+    {
+      "name": "victor",
+      "phone": "11 000912345",
+      "email": "andreina11@gmail.com",
+      "favorite": false,
+      "id": "114BusNlMPM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -54,8 +54,11 @@ contactList.addEventListener("click", async (event)=>{
             contatoEditadoId = contatoAtual.id;
             break;
         }
-        case "delete":
+        case "delete":{
+            await api.deletarContato(id);
+            init();
             break;        
+        }
     }
 })
 

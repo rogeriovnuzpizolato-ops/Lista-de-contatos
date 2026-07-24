@@ -41,7 +41,7 @@ const api = {
        }
     },
 
-    async DeletarContato(id){
+    async deletarContato(id){
         try {
             const response = await fetch(`http://localhost:3000/contacts/${id}`,{
                 method: "DELETE"
